@@ -1,0 +1,13 @@
+﻿Before a claim goes live, check what the evidence supports.
+
+Two draft messages promise CSV export to all accounts. A tester announcement narrows access to internal testers. A teammate brings the copy to a Switch room for review.
+
+Switch puts the teammate and reviewer in one shared conversation. A read-only adapter fetches current campaign evidence from Official.
+
+The connected demo endpoint returns synthetic records. It contradicts both all-account claims, supports the internal-tester announcement, and leaves an unlinked dashboard update unchecked. The support comes from a rollout record, running revision R17, and a passing production smoke test.
+
+The reviewer suggests a narrower line: CSV export is available now to internal testers.
+
+A person posts USE SUGGESTION. The reviewer echoes the choice and reference in the room as DECISION_RECORDED. That records the decision in Switch. No campaign copy is changed or published.
+
+With verified rollout evidence, teams can review claims together before publication. Evidence first. People decide.

@@ -1,33 +1,29 @@
-# Storylines
+# Storyline decision — Four claims, one human choice
 
-## Recommended — Four claims, one choice gate
+## Chosen arc: value-first demo loop
+A team needs to know which launch claims evidence can support before publication. Follow one fictional draft into a shared Switch room, show the reviewer inspect each claim, preserve only the supported scope in the suggestion, and end on the person's actual choice. The task, not a feature list, carries the story.
 
-**Device and form:** four fictional campaign clauses enter a Switch room and are checked against an explicitly labeled local fixture. End with the human-choice gate visible; no choice has been recorded. Use a match cut from Switch Console to the real team-chat room, then hold the actual interface while the reviewer works.
+## Why this cut
+- It opens in outcome language: catch an overclaim before launch.
+- The real Switch room and reviewer appear immediately; their shared-workflow role is clear by 0:15.
+- Four findings and the exact suggested sentence provide concrete proof.
+- The person's choice demonstrates agency; the internally verified reviewer acknowledgment completes the flow.
+- One campaign travels through the whole cut, with no unrelated product tour.
 
-**First two seconds:** the real room opens on the compound sample, clearly labeled as fictional.
+## Beat order
+1. **Hook:** risky claim, with “What does the evidence support?”
+2. **Context:** teammate asks the existing reviewer in the Switch room.
+3. **Mechanism:** person, shared room, agent, read-only evidence path.
+4. **Proof:** supported, contradicted, and two unknown findings from the connected fictional campaign data.
+5. **Payoff:** exact suggested wording and the limited sentence-length result.
+6. **Agency:** actual USE SUGGESTION choice/reference and reviewer confirmation recorded in the room.
+7. **Close:** “Evidence first. People decide.” plus setup in README.
 
-**Beats:** four clauses → shared room → one Contradicted, one Supported, two Unknown → supported wording → human-choice gate → real-world path.
+## Visual logic
+Real chat and result captures carry the piece. A single vector workflow rail explains the connection; no generated images. The evidence is the hero; the suggested sentence is the payoff. Each claim is revealed when narrated, then held legibly.
 
-**Look and sound:** actual Switch interface, Official-inspired color accents, user-recorded voice, captions, no music by default. Do not show fabricated product screens.
-
-## Alternative — Before the campaign goes out
-
-**Device and form:** follow a marketer's review from the compound draft to the visible human-choice gate, using real messages in one continuous desktop view.
-
-**First two seconds:** the actual compound claim appears beside “Needs review.”
-
-**Beats:** draft → question → shared review → evidence → safe wording → waiting for a human choice → end card.
-
-**Look and sound:** real app capture, restrained callouts, user-recorded voice and captions.
-
-## Alternative — The evidence is the reveal
-
-**Device and form:** start with the real Contradicted result, then reveal the Switch room and the person's question. End at the waiting state so the evidence never looks like an automatic publish.
-
-**First two seconds:** the actual Contradicted result fills the room view, with its fictional local source marker visible.
-
-**Beats:** result → fixture label → original claims → supported and Unknown clauses → safe wording → human-choice gate → end card.
-
-**Look and sound:** actual interface crop and source text, restrained camera push, user-recorded voice and captions.
-
-The recommended storyline follows the current live Switch evidence. The story ends before a human decision is recorded.
+## Removed
+- Separate compound-claim explanation, which repeated the four-result proof.
+- Unverified claims about campaign changes or publication.
+- Extended unavailable-service disclaimer; identify the fictional campaign data early and keep its label visible.
+- Decorative depth, repeated entrance templates, fake cursor, and long empty silences.

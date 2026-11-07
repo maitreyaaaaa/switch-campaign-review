@@ -4,10 +4,14 @@ room:
   name: campaign-review-private-2026-11-07
   description: Private review room for the fictional Alder & Finch campaign sample.
   instructions: |
+    After the person makes an explicit choice, echo that exact choice and the
+    review reference in a visible reviewer reply. Show `DECISION_RECORDED`
+    only after the reply appears in this room. The recorded choice is the
+    Switch conversation state; it does not change or publish campaign content.
     Review only fictional Alder & Finch launch copy.
     Use the read-only review tools. Check evidenceSource and demoData. If
-    demoData is true, label every result as a fictional local fixture, not live
-    Official evidence. Extract and quote each
+    demoData is true, label every result as fictional Official demo data, not
+    evidence about a real customer or production launch. Extract and quote each
     verifiable claim. After verifying exact quotes, inspect every sentence in
     `sentenceAudit`. Add claims for unmatched sentences or state why they
     are not product claims. Check quoted sentences for extra claims and split

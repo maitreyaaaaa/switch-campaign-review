@@ -1,0 +1,151 @@
+1
+00:00:00,000 --> 00:00:01,020
+Before a claim goes live,
+
+2
+00:00:01,280 --> 00:00:02,500
+check what the evidence supports.
+
+3
+00:00:03,380 --> 00:00:05,120
+This fictional draft promises CSV
+
+4
+00:00:05,120 --> 00:00:07,480
+export to every account, setup
+
+5
+00:00:07,480 --> 00:00:09,340
+in seconds, and 80 percent fewer
+
+6
+00:00:09,340 --> 00:00:10,120
+manual errors.
+
+7
+00:00:10,820 --> 00:00:12,020
+A teammate asks the reviewer
+
+8
+00:00:12,020 --> 00:00:12,940
+to check it in a
+
+9
+00:00:12,940 --> 00:00:13,400
+switchroom.
+
+10
+00:00:13,960 --> 00:00:15,440
+Switch brings the teammate and
+
+11
+00:00:15,440 --> 00:00:16,900
+an existing reviewer into one
+
+12
+00:00:16,900 --> 00:00:17,780
+shared conversation.
+
+13
+00:00:18,520 --> 00:00:20,140
+A read-only adapter checks each
+
+14
+00:00:20,140 --> 00:00:21,620
+claim against the campaign evidence.
+
+15
+00:00:22,480 --> 00:00:23,840
+This review uses fictional campaign
+
+16
+00:00:23,840 --> 00:00:24,300
+data.
+
+17
+00:00:24,940 --> 00:00:26,520
+CSV export is supported for
+
+18
+00:00:26,520 --> 00:00:27,840
+internal testers in the US
+
+19
+00:00:27,840 --> 00:00:28,260
+today.
+
+20
+00:00:28,880 --> 00:00:30,300
+Access for every account is
+
+21
+00:00:30,300 --> 00:00:30,700
+contradicted.
+
+22
+00:00:31,440 --> 00:00:33,000
+setup time and the 80 percent
+
+23
+00:00:33,000 --> 00:00:33,840
+result are unknown.
+
+24
+00:00:34,600 --> 00:00:35,860
+The reviewer suggests a narrower
+
+25
+00:00:35,860 --> 00:00:36,320
+line.
+
+26
+00:00:37,000 --> 00:00:38,100
+Internal testers in the US
+
+27
+00:00:38,100 --> 00:00:39,980
+can use CSV export today.
+
+28
+00:00:40,580 --> 00:00:41,520
+It stays within the evidence.
+
+29
+00:00:42,320 --> 00:00:43,720
+A person chooses use suggestion
+
+30
+00:00:43,720 --> 00:00:44,840
+with the review reference.
+
+31
+00:00:45,560 --> 00:00:46,840
+The reviewer echoes that choice
+
+32
+00:00:46,840 --> 00:00:47,940
+in the room and the
+
+33
+00:00:47,940 --> 00:00:49,440
+workflow records DECISION_RECORDED.
+
+34
+00:00:50,200 --> 00:00:51,560
+Nothing was changed or published.
+
+35
+00:00:52,260 --> 00:00:54,140
+With verified rollout evidence, teams
+
+36
+00:00:54,140 --> 00:00:55,800
+can review claims together before
+
+37
+00:00:55,800 --> 00:00:56,160
+publication.
+
+38
+00:00:56,160 --> 00:00:58,780
+Evidence first, people decide.

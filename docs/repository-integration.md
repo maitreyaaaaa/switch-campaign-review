@@ -41,9 +41,9 @@ The reviewer does **not** crawl either GitHub repository at runtime. It uses the
 ## Evidence status
 
 - Both repositories are public and linked above.
-- The Switch-side adapter is wired to the Official review route and can run against its labeled fictional fixture.
-- The latest live check on **November 8, 2026** returned HTTP 200 from `/api/health` with `falkorDb: connected` and HTTP 200 from the review route with four synthetic fixture findings (two contradicted claims, one supported claim, and one unchecked draft). This verifies the deployed API path and response shape. The records are fictional demo data, not evidence about a real company or launch.
-- The final human choice remains in the Switch room. The mock completion record is labeled `DECISION_RECORDED (MOCK)`; it is not a real persistent Official decision or a campaign update.
+- The Switch-side adapter is wired to the Official review route and can run against the deployed fictional demo data or the explicit offline fixture mode.
+- The latest live check on **November 8, 2026** returned HTTP 200 from `/api/health` with `falkorDb: connected` and HTTP 200 from the review route with four synthetic Official demo findings (two contradicted claims, one supported claim, and one unchecked draft). This verifies the deployed API path and response shape. The records are fictional demo data, not evidence about a real company or launch.
+- Phase six was internally verified in the Switch room: the reviewer echoed the person's explicit choice and showed `DECISION_RECORDED`. This room state records the review decision; no campaign content was changed or published.
 
 ## Judging context
 

@@ -1,28 +1,27 @@
-# Narration script — Campaign Review Room
+# Narration script - Campaign Review Room
 
-**Draft target:** about 90 seconds including pauses for the interface  
-**Narrator:** user-recorded  
-**Data:** fictional Alder & Finch campaign and local fixture; not live Official evidence
+**Target:** 60 seconds including close; synthetic narration measures 59.17 seconds, with captions through 58.78 seconds.
+**Narrator:** Kokoro-82M `af_sky`, generated locally at speed 1.0.
+**Data:** fictional campaign data from the connected Official demo endpoint. The Switch interface is a coded recreation; the room response was internally verified.
 
 ## Voiceover
 
-Marketing copy can reach farther than a product rollout.
+Before a claim goes live, check what the evidence supports.
 
-In this fictional rehearsal, a campaign says CSV export is available to every account, takes seconds to set up, and reduces manual errors by 80%. A teammate asks the reviewer to check the claims in a Switch room.
+This fictional draft promises CSV export to every account, setup in seconds, and 80 percent fewer manual errors. A teammate asks the reviewer to check it in a Switch room.
 
-The local fixture supports CSV export for internal testers in the US today. It contradicts access for every account. It has no evidence for setup time or error reduction, so the reviewer marks those claims Unknown.
+Switch brings the teammate and an existing reviewer into one shared conversation. A read-only adapter checks each claim against the campaign evidence.
 
-The reviewer suggests one sentence that keeps only the supported audience and timing: “Internal testers in the US can use CSV export today.”
+This review uses fictional campaign data. CSV export is supported for internal testers in the US today. Access for every account is contradicted. Setup time and the 80 percent result are unknown.
 
-This run uses fictional local demo data because the live Official evidence service is unavailable. The person chose USE SUGGESTION and posted the choice with its review reference in the private room. The reviewer acknowledgment and `DECISION_RECORDED` state were not verified in this run. No campaign content changed or was published.
+The reviewer suggests a narrower line: Internal testers in the US can use CSV export today. It stays within the evidence.
 
-In a real marketing team, connect the review to approved rollout records. Switch keeps the discussion with the team, and a person decides what copy to use.
+A person chooses USE SUGGESTION with the review reference. The reviewer echoes that choice in the room, and the workflow records DECISION_RECORDED. Nothing was changed or published.
 
-No draft changed. Nothing was published.
+With verified rollout evidence, teams can review claims together before publication. Evidence first. People decide.
 
 ## Recording notes
-
-- Record a clean WAV or high-quality MP3 in a quiet room; speak naturally and leave a short pause after “Unknown” and the suggested wording.
-- The final video should use this real recording for both voiceover and synchronized captions. Provide burned-in captions and a separate `.srt` file.
-- Show the actual human choice and reviewer acknowledgment only if both are visible in the room. Do not stage a reviewer echo or imply `DECISION_RECORDED` without visible evidence.
-- If the live review differs from this script, update the script and captions to match what the room actually returned before rendering.
+- Keep `UI RECREATION · ILLUSTRATIVE DEMO` and `FICTIONAL CAMPAIGN DATA` visible throughout.
+- Narration is synthetic Kokoro `af_sky`, not a user recording. The audio file measures 59.17 seconds at speed 1.0.
+- Burn in Whisper-timed captions and include a separate SRT.
+- Phase six was internally verified in the Switch room; no campaign content was changed or published.

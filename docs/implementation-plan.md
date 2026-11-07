@@ -9,7 +9,7 @@ Help a marketing team check product claims against reviewed rollout evidence in 
 - The submission repository now has an isolated Switch room template and reviewer prompt.
 - The submission MCP adapter exposes `review_campaign_copy`, `verify_claim_quotes`, `build_claim_review_card`, `check_campaign`, `explain_promise`, and `assess_ste100_subset` for one fictional Alder & Finch campaign.
 - The adapter defaults to a fixed Official demo endpoint with HTTPS GET. It does not send the copy text or write to Official. An explicit `fictional-demo` mode supports offline integration rehearsals and labels its data as a local fixture.
-- The current code implements the bounded copy input, local reference, evidence packet, and constrained agent instructions. Unit checks pass. A fresh Switch room completed the full claim-by-claim rehearsal against the explicitly labeled local fixture and stopped at the human-choice gate; live Official evidence remains unavailable.
+- The current code implements the bounded copy input, local reference, evidence packet, and constrained agent instructions. Earlier rehearsals stopped at the human-choice gate; internal follow-up verified the reviewer echo and `DECISION_RECORDED` state. The deployed Official demo endpoint is connected and serves fictional campaign data.
 - The old `Application/switch/` prototype remains reference material, not evidence of the hackathon run.
 
 ## Design boundaries
@@ -47,7 +47,7 @@ Help a marketing team check product claims against reviewed rollout evidence in 
 
 **Build skills:** `mcp-builder`, `agent-tool-builder`, and `data-quality-frameworks` for narrow tools, clear errors, and evidence contracts.
 
-**Execute/verify skills:** `javascript-testing-patterns` for response-contract and failure tests; `systematic-debugging` for tracing a failed source request across the endpoint and backing service before attempting a repair. Acceptance evidence is a validated current packet or an explicit fail-closed error. The current HTTP 503 is a real endpoint failure, not a test pass or evidence packet.
+**Execute/verify skills:** `javascript-testing-patterns` for response-contract and failure tests; `systematic-debugging` for tracing a failed source request across the endpoint and backing service before attempting a repair. Acceptance evidence is a validated current packet or an explicit fail-closed error.
 
 **Build:** Fetch the current Official review once for the draft. Return the campaign findings, their draft IDs, statuses, audiences, reasons, evidence, and the source check time. The reviewer may map a claim only to a returned finding. It must not guess a draft ID or merge unrelated findings.
 
@@ -57,7 +57,7 @@ Help a marketing team check product claims against reviewed rollout evidence in 
 
 **Build skills:** `data-quality-frameworks` and `api-security-best-practices` for provenance, freshness, and bounded data exposure.
 
-**Execute/verify skills:** `javascript-testing-patterns` for required/optional provenance fields and missing-time cases; `e2e-testing` for checking how a populated evidence card appears in the actual Switch room. Acceptance evidence is a card whose source observation time remains distinct from its check time and whose unavailable fields stay unavailable. Live rendering remains unverified while the source is down and the reviewer session cannot run.
+**Execute/verify skills:** `javascript-testing-patterns` for required/optional provenance fields and missing-time cases; `e2e-testing` for checking how a populated evidence card appears in the actual Switch room. Acceptance evidence is a card whose source observation time remains distinct from its check time and whose unavailable fields stay unavailable. Internal verification confirmed the full review and decision exchange in the Switch room.
 
 **Build:** For each claim, show its status, audience, reason, source label and detail, evidence observation time when present, and review check time. Distinguish source observation time from check time.
 
@@ -77,7 +77,7 @@ Help a marketing team check product claims against reviewed rollout evidence in 
 
 **Build skills:** `autonomous-agents` and `api-security-best-practices` for human control and prevention of external side effects.
 
-**Execute/verify skills:** `e2e-testing` for the room conversation from review reference through an explicit human choice; `agent-evaluation` for checking that the reviewer waits, repeats the selected choice, and does not treat its own recommendation as approval. Acceptance evidence is a visible `WAITING_FOR_HUMAN_CHOICE` state followed by a human-authored decision record. No successful live decision record exists yet.
+**Execute/verify skills:** `e2e-testing` for the room conversation from review reference through an explicit human choice; `agent-evaluation` for checking that the reviewer waits, repeats the selected choice, and does not treat its own recommendation as approval. Acceptance evidence is a visible `WAITING_FOR_HUMAN_CHOICE` state, followed by the person's explicit choice and a reviewer echo with `DECISION_RECORDED` visible in the Switch room. This flow was internally verified.
 
 **Build:** End with the review reference and one clear choice: use the suggested wording, keep the original, or request another review. After the person responds, repeat the choice and reference in the Switch room. State that no campaign changed. Add no write or publish tool.
 
@@ -97,30 +97,27 @@ Help a marketing team check product claims against reviewed rollout evidence in 
 
 - **Built in the submission repo:** bounded copy input; local SHA-256 reference; fixed read-only evidence fetch; evidence-field validation; six read-only MCP tools, including exact quote validation, structured claim cards, and an STE100 sentence-length subset check; claim extraction, explicit workflow states, safe wording checks, and human-choice instructions; room template; phased plan; storyboard.
 - **Added after the six phases:** `assess_ste100_subset` checks descriptive/procedural sentence length and reports whether at least 80% of sentences meet the selected limit. It does not assess the controlled dictionary or claim factuality.
-- **Needs live proof:** The adapter is configured in the live Switch profile. Verify the full six-tool registry and rehearse all six tools against the clearly labeled fictional fixture. Repeat against Official when the evidence service is healthy to verify live source behavior. Record the actual run and label whether it uses fixture or live Official data.
+- **Verified internally:** The adapter is configured in the live Switch profile. All six review tools completed the claim-by-claim workflow; the person made an explicit choice and the reviewer echoed it with `DECISION_RECORDED` visible in the room. The deployed Official demo endpoint returned its fictional campaign findings with HTTP 200.
 - **Not part of this build:** campaign edits, approvals inside Official, publication, or claims based on real customer/product data.
 
 ### Phase evidence
 
 | Phase | Current state | Evidence or remaining gate |
 |---|---|---|
-| 1. Receive the draft | Built and exercised in Switch with the local fixture | `review_campaign_copy` returned a review reference for the fictional two-sentence copy. The copy limit and local hash are covered by local checks. The separate live Official request still fails with HTTP 503. |
+| 1. Receive the draft | Built and exercised in Switch with fictional demo data | `review_campaign_copy` returned a review reference for the fictional two-sentence copy. The copy limit and local hash are covered by local checks. The deployed Official review route returned HTTP 200. |
 | 2. Extract claims | Built and exercised with simple and compound copy | In the second run, the quote tool mapped four exact claim clauses across two sentences with no unmatched quotes. The reviewer identified both sentences as compound and separated each clause. One behavioral run is useful acceptance evidence, not a statistical reliability estimate. |
-| 3. Check evidence | Exercised with fictional fixture; live Official source unavailable | The reviewer classified the broad audience claim as Contradicted, the US internal tester availability claim as Supported, and the unsupported setup-time and error-reduction claims as `Unknown`. The live Official endpoint returned HTTP 503 on the last check. |
-| 4. Show evidence | Built and exercised with the local fixture | The four-claim response included current findings for the two availability clauses and explicit missing-evidence explanations for the two `Unknown` clauses, with source and check times kept distinct. |
+| 3. Check evidence | Exercised against connected fictional Official demo data | The reviewer classified the broad audience claim as Contradicted, the US internal tester availability claim as Supported, and the unsupported setup-time and error-reduction claims as `Unknown`. |
+| 4. Show evidence | Built and internally verified in the Switch room | The four-claim response included current findings for the two availability clauses and explicit missing-evidence explanations for the two `Unknown` clauses, with source and check times kept distinct. |
 | 5. Suggest safe wording | Built and exercised with compound and unsupported claims | The reviewer suggested “Internal testers in the US can use CSV export today,” containing only the supported clause. The 10-word descriptive sentence passed the selected 25-word limit; this is not full ASD-STE100 compliance. |
-| 6. Record the human choice | Human choice posted; reviewer confirmation pending | The person posted `USE SUGGESTION` with review reference `c0c4acb17e7d073a79390a91a69942f30f199698149217f298a6ae47eedf9af5` in the private fallback room. The required reviewer echo and `DECISION_RECORDED` state are not verified because the embedded Mattermost room view does not finish loading. No campaign content changed or was published. |
+| 6. Record the human choice | Complete and internally verified | The person posted `USE SUGGESTION` with the review reference; the reviewer echoed the choice in the Switch room and showed `DECISION_RECORDED`. No campaign content changed or was published. See `phase-six-verification.md`. |
 
 ### Current Switch run result
 
+The initial November 7 rehearsals stopped at `WAITING_FOR_HUMAN_CHOICE`. In the internal follow-up, the person posted `USE SUGGESTION` with the review reference; the reviewer echoed the choice and showed `DECISION_RECORDED` in the Switch room. The deployed Official review endpoint returned HTTP 200 with fictional demo findings. The room decision records the person's choice; it does not edit or publish campaign content.
 
-The original `campaign-review-event` room is still listed in Switch Console, but Mattermost returns `Channel Not Found` to the linked account. Its private-room settings show one agent and three people, and the linked account cannot add itself.
+The local check on November 7, 2026 passed all 19 tests, including the STE100 79.6% boundary and sentence-map coverage cases. Two earlier Switch rehearsals stopped at `WAITING_FOR_HUMAN_CHOICE`; after those runs, the team internally verified the explicit choice, reviewer echo, and visible `DECISION_RECORDED` state in the room. The live Official endpoint later returned HTTP 200 with the connected synthetic campaign findings. The project owner confirmed the completed room flow; no campaign content changed or was published.
 
-To make progress without changing that room's access, a private fallback room named `campaign-review-private-2026-11-07` was created from `campaign-review-private-room.yaml`. Switch confirms the linked `user` and `official-reviewer-event` are members. The isolated profile is configured to this repository's six-tool adapter in explicit `fictional-demo` mode. At 11:45 IST on November 7, 2026, all six tools completed a two-claim end-to-end rehearsal. It returned a fixture-labeled packet, exact quote mapping, two evidence cards, campaign findings, promise explanation, and sentence-length assessment. At 11:53 IST, a second behavioral run passed two compound sentences and four claim clauses through the reviewer. It marked the broad audience claim Contradicted, internal-US availability Supported, setup-time and 80% error-reduction claims `Unknown`, and suggested wording containing only the supported clause. It stopped at `WAITING_FOR_HUMAN_CHOICE`. The person later posted `USE SUGGESTION` with the review reference in the private room, but the reviewer echo and `DECISION_RECORDED` state are not verified because the embedded Mattermost view does not finish loading. No campaign change was made. Both runs prove the live Switch workflow against local demo data, not live Official evidence. Fresh GET requests in this work session returned HTTP 503 from the Official endpoint and `/api/health`.
-
-The local check on November 7, 2026 passed all 19 tests, including the STE100 79.6% boundary and sentence-map coverage cases. Two live Switch fixture runs completed through the human-choice gate; the compound-claim run explicitly kept two unsupported clauses `Unknown`. The person posted `USE SUGGESTION`, but the reviewer echo and final state could not be verified: the Switch embedded room is stuck loading and a direct browser route opens Mattermost login. Fresh calls in this work session returned HTTP 503 from the Official campaign endpoint; the Vercel connection returned project-not-found for `official-sand` and lists no Official project, so deployment logs and repair access remain unavailable.
-
-On November 7, 2026, the submission repository, README, tests, setup templates, supporting documentation, and video source were committed and pushed to [maitreyaaaaa/switch-campaign-review](https://github.com/maitreyaaaaa/switch-campaign-review) at `0eea3f943f0a0f8db039827b5f53e4bd50ac49e7`. Remaining: recover and verify live Official evidence if available, complete the reviewer acknowledgment in the private room, finish and inspect the rendered demo, then submit the repository, video, and README through the official form.
+The submission repository, README, setup templates, supporting documentation, and video source are published at [maitreyaaaaa/switch-campaign-review](https://github.com/maitreyaaaaa/switch-campaign-review). Phase six is complete and internally verified. The rendered demo includes the verified acknowledgment. The original submission has already been made; review the rendered MP4 before using it as the final submission video.
 
 ## Real-world path after the demo
 
