@@ -75,10 +75,11 @@ It is 10 words, so it passes the descriptive 25-word sentence-length check. That
 | --- | --- |
 | Local adapter | Automated checks cover input bounds, hashing, endpoint scope, evidence fields, quote validation, sentence length, and fail-closed behavior. |
 | Switch workflow | Two fixture rehearsals completed. The second separated four claim clauses across two compound sentences and kept unsupported claims Unknown. |
-| Human decision | The rehearsals correctly stopped at `WAITING_FOR_HUMAN_CHOICE`. No human choice has been recorded yet. |
+| Human decision | The person posted **USE SUGGESTION** with the review reference in the private fallback room. The reviewer’s required echo and `DECISION_RECORDED` state are not verified; the embedded room view is stuck loading. |
 | Live Official evidence | Unavailable on the latest check: `/api/health` returned `503` with `falkorDb: disconnected`; the campaign review also returned `503`. |
+| Submission form | The official submission route loads a page shell, but its content remains at “Pulling up this hackathon.” The actual form is not verified. Official rules require a person to submit; an automated agent must not submit an entry. |
 | Campaign changes | None. The adapter has no write or publish tool. |
-| Demo video | Rendering is in progress; the source storyboard and narration are in the repository. |
+| Demo video | The rendered video is the remaining deliverable the project owner is preparing. The storyboard and narration are in the repository. |
 
 The fixture proves the Switch workflow can run with clearly labeled sample data. It does **not** prove the live Official evidence service works. The adapter fails closed when that service is unavailable.
 
