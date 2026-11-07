@@ -13,15 +13,28 @@ An evidence-first campaign review workflow where a team and an AI agent work tog
   <img alt="Fictional demo data" src="https://img.shields.io/badge/data-fictional%20demo-f2a900?style=for-the-badge" />
 </p>
 
-**Project demo:** a rendered video is being prepared. The [storyboard](video/storyboard.md) and [narration script](docs/narration-script.md) are available now.
+**Project demo:** a 66-second rendered video is available at [`video/hyperframes/renders/switch-hackathon-demo.mp4`](video/hyperframes/renders/switch-hackathon-demo.mp4). It uses a labeled Switch UI recreation, fictional local data, synthetic narration, and licensed music. See the [storyboard](video/storyboard.md) and [narration script](docs/narration-script.md).
 
 </div>
 
-> **Demo status:** The workflow has been rehearsed in Switch using an explicitly labeled fictional fixture. The live Official evidence endpoint is currently unavailable (HTTP 503; FalkorDB reports disconnected). Fixture results are not live product evidence.
+> **Demo status:** The review workflow was rehearsed in Switch using an explicitly labeled fictional fixture. The submission includes an offline mock completion record and private-room instructions for a simulated post-choice acknowledgment; no mock acknowledgment was posted to Mattermost. On November 8, 2026, `/api/health` returned HTTP 200 with FalkorDB connected and the live campaign-review route returned HTTP 200 with four fictional draft findings. The API is connected; the mock phase-six acknowledgment remains separate from any persistent Official decision. The campaign data is synthetic, not evidence about a real company or launch.
+
+**Companion repository:** [Official](https://github.com/maitreyaaaaa/official) supplies the campaign-evidence API used by this Switch workflow. This submission repo contains the Switch room and MCP adapter; the integration is an HTTP API contract, not a Git submodule or an agent crawling GitHub. See the [two-repository integration map](docs/repository-integration.md).
 
 ## Why this exists
 
 Product launch copy can overstate who can use a feature, when it is available, or what results it delivers. Campaign Review Room gives product and marketing teammates a shared place to check each claim against reviewed rollout evidence before they publish.
+
+## What reviewers can verify
+
+| Hackathon criterion | Evidence in this submission |
+| --- | --- |
+| **Use of Switch** | The private-room setup, reviewer instructions, and MCP adapter show how the person and AI agent work together in a Switch room. |
+| **Technical execution** | The adapter has a fixed, read-only Official endpoint; bounded input; quote and finding-ID checks; a fixture mode; and automated checks. The [run instructions](#run-the-adapter) explain how to reproduce the local workflow. |
+| **Creativity and impact** | The workflow catches unsupported audience, rollout, timing, and outcome claims before launch copy is used. |
+| **Presentation** | This README explains the workflow; the [storyboard](video/storyboard.md), [narration](docs/narration-script.md), and [rendered demo](video/hyperframes/renders/switch-hackathon-demo.mp4) show it. |
+
+These are pointers to implementation and evidence, not claims that every live service is currently healthy. The live API check and its limits are recorded above.
 
 The demo uses a fictional SaaS campaign. Its draft says CSV export is available to every account, takes seconds to set up, and reduces manual errors by 80%. The fixture supports availability only for US internal testers. It contradicts the broad audience claim and has no evidence for setup time or error reduction, so those claims stay **Unknown**.
 
@@ -75,11 +88,11 @@ It is 10 words, so it passes the descriptive 25-word sentence-length check. That
 | --- | --- |
 | Local adapter | Automated checks cover input bounds, hashing, endpoint scope, evidence fields, quote validation, sentence length, and fail-closed behavior. |
 | Switch workflow | Two fixture rehearsals completed. The second separated four claim clauses across two compound sentences and kept unsupported claims Unknown. |
-| Human decision | The person posted **USE SUGGESTION** with the review reference in the private fallback room. The reviewer’s required echo and `DECISION_RECORDED` state are not verified; the embedded room view is stuck loading. |
-| Live Official evidence | Unavailable on the latest check: `/api/health` returned `503` with `falkorDb: disconnected`; the campaign review also returned `503`. |
+| Human decision | The person posted **USE SUGGESTION** with the review reference in the private fallback room. The final phase is marked complete in the offline mock record as `DECISION_RECORDED (MOCK)`. The mock acknowledgment was not run in Mattermost. A real reviewer echo and live `DECISION_RECORDED` state remain unverified because the embedded room view is stuck loading. |
+| Live Official evidence | `/api/health` returned `200` with `falkorDb: connected`; the campaign-review route returned `200` and four synthetic fixture findings. The API path is live, but the records are fictional demo data. |
 | Submission form | The official submission route loads a page shell, but its content remains at “Pulling up this hackathon.” The actual form is not verified. Official rules require a person to submit; an automated agent must not submit an entry. |
 | Campaign changes | None. The adapter has no write or publish tool. |
-| Demo video | The rendered video is the remaining deliverable the project owner is preparing. The storyboard and narration are in the repository. |
+| Demo video | Rendered 66-second, 1080p MP4 at `video/hyperframes/renders/switch-hackathon-demo.mp4`; UI recreation and fictional data are labeled in-frame. |
 
 The fixture proves the Switch workflow can run with clearly labeled sample data. It does **not** prove the live Official evidence service works. The adapter fails closed when that service is unavailable.
 
@@ -139,6 +152,7 @@ See the [real-world connection and data contract](docs/real-world-connection.md)
 - [Submission and demo checklist](docs/event-build-checklist.md)
 - [ASD-STE100 scope and limitations](docs/ste100-scope.md)
 - [Real-world integration path](docs/real-world-connection.md)
+- [How the two repositories connect](docs/repository-integration.md)
 - [Video storyboard](video/storyboard.md)
 - [Video narration](docs/narration-script.md)
 
