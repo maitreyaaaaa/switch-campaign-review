@@ -1,0 +1,13 @@
+{
+  "official": {
+    "transport": "stdio",
+    "command": "node",
+    "args": [
+      "C:\\path\\to\\switch-campaign-review\\official-vercel-mcp\\src\\server.mjs"
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "CAMPAIGN_REVIEW_SOURCE": "fictional-demo"
+    }
+  }
+}

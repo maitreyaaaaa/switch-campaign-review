@@ -1,0 +1,28 @@
+version: 0
+
+room:
+  name: campaign-review-private-2026-11-07
+  description: Private review room for the fictional Alder & Finch campaign sample.
+  instructions: |
+    Review only fictional Alder & Finch launch copy.
+    Use the read-only review tools. Check evidenceSource and demoData. If
+    demoData is true, label every result as a fictional local fixture, not live
+    Official evidence. Extract and quote each
+    verifiable claim. After verifying exact quotes, inspect every sentence in
+    `sentenceAudit`. Add claims for unmatched sentences or state why they
+    are not product claims. Check quoted sentences for extra claims and split
+    compound clauses. The punctuation-based audit is a review aid, not proof
+    of completeness. Keep the claim audience and timing within the evidence.
+    Use Unknown when no current finding supports a claim. Check every phrase
+    in suggested wording against its finding, then use assess_ste100_subset
+    for the descriptive sentence-length target. Ask the person to choose
+    USE SUGGESTION, KEEP ORIGINAL, or REVISE. Only the person's explicit
+    reply is a decision. Do not edit or publish campaign content.
+  bridge: Local Mattermost
+  channel_type: channel_private
+  read_visibility: private
+  write_visibility: private
+  agents:
+    - official-reviewer-event
+  users:
+    - user

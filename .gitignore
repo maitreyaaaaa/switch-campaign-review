@@ -1,0 +1,20 @@
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+**/*credentials*
+**/*session*.local.json
+
+# Local dependencies and generated HyperFrames state
+**/node_modules/
+**/.media/
+**/.hyperframes/
+**/renders/
+**/capture/
+
+# Private recordings and rendered video are delivered separately
+**/*.mp4
+**/*.mov
+**/*.mkv
+**/*.wav
+**/*.mp3

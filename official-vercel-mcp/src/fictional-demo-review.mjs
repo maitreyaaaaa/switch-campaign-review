@@ -1,0 +1,48 @@
+export const FICTIONAL_DEMO_REVIEW = Object.freeze({
+  campaign: Object.freeze({
+    id: 'campaign-csv-launch',
+    name: 'CSV export launch',
+    companyName: 'Alder & Finch',
+  }),
+  checkedAt: '2026-11-07T06:00:00.000Z',
+  findings: Object.freeze([
+    Object.freeze({
+      draftId: 'draft-all-accounts',
+      title: 'CSV export availability',
+      kind: 'availability',
+      text: 'CSV export is available to every account.',
+      promiseText: 'available to every account',
+      featureName: 'CSV export',
+      audienceName: 'every account',
+      status: 'Contradicted',
+      reason: 'The reviewed rollout is limited to internal testers in the US.',
+      evidence: Object.freeze([Object.freeze({
+        id: 'evidence-s2-rollout',
+        label: 'Fictional S2 rollout record',
+        detail: 'CSV export is enabled for internal tester accounts in the US only.',
+        kind: 'rollout',
+        observedAt: '2026-11-06T10:00:00.000Z',
+        reviewedBy: 'Fictional product team',
+      })]),
+    }),
+    Object.freeze({
+      draftId: 'draft-internal-testers-us',
+      title: 'CSV export preview access',
+      kind: 'availability',
+      text: 'Internal testers in the US can use CSV export today.',
+      promiseText: 'Internal testers in the US can use CSV export today',
+      featureName: 'CSV export',
+      audienceName: 'internal testers in the US',
+      status: 'Supported',
+      reason: 'The fictional rollout record confirms preview access for this audience.',
+      evidence: Object.freeze([Object.freeze({
+        id: 'evidence-s2-preview',
+        label: 'Fictional S2 preview record',
+        detail: 'The CSV export preview is enabled for internal tester accounts in the US today.',
+        kind: 'rollout',
+        observedAt: '2026-11-06T10:00:00.000Z',
+        reviewedBy: 'Fictional product team',
+      })]),
+    }),
+  ]),
+});
